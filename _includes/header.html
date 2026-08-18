@@ -3,9 +3,7 @@
     <p class="site-title"><a href="{{ '/' | relative_url }}">MieleLab</a></p>
     <nav class="main-nav" aria-label="Main">
       <ul>
-        {% unless page.url == '/' %}
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
-        {% endunless %}
+        <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a></li>
         <li><a href="{{ '/connecting-dots/' | relative_url }}"{% if page.url == '/connecting-dots/' %} aria-current="page"{% endif %}>Book</a></li>
         <li><a href="{{ '/projects/' | relative_url }}"{% if page.url == '/projects/' %} aria-current="page"{% endif %}>Projects &amp; Collaborations</a></li>
         <li><a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' %} aria-current="page"{% endif %}>Blog</a></li>

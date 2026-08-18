@@ -12,30 +12,39 @@ permalink: /contact/
 <p>Join the <a href="https://groups.google.com/g/mielelab-announcements">MieleLab email list on Google groups</a></p>
 <p>or send an email to <a href="mailto:MieleLab-announcements+subscribe@googlegroups.com">MieleLab-announcements+subscribe@googlegroups.com</a></p>
 
-<form class="contact-form" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST">
+<div data-fs-success role="alert" tabindex="-1" id="contact-success">
+  <p>Thank you for contacting Josh! He will get in touch with you soon..</p>
+</div>
+
+<div data-fs-error role="alert"></div>
+
+<form class="contact-form" id="contact-form" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST" aria-label="Contact">
   <input type="hidden" name="_next" value="{{ '/contact/thanks/' | absolute_url }}">
   <fieldset>
     <legend>Name</legend>
     <div class="name-fields">
       <div class="field">
         <label for="first-name">First <span class="required" aria-hidden="true">*</span></label>
-        <input type="text" id="first-name" name="First name" autocomplete="given-name" required>
+        <input type="text" id="first-name" name="First name" autocomplete="given-name" required data-fs-field>
+        <span data-fs-error="First name"></span>
       </div>
       <div class="field">
         <label for="last-name">Last <span class="required" aria-hidden="true">*</span></label>
-        <input type="text" id="last-name" name="Last name" autocomplete="family-name" required>
+        <input type="text" id="last-name" name="Last name" autocomplete="family-name" required data-fs-field>
+        <span data-fs-error="Last name"></span>
       </div>
     </div>
   </fieldset>
 
   <div class="field">
     <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
-    <input type="email" id="email" name="_replyto" autocomplete="email" required>
+    <input type="email" id="email" name="_replyto" autocomplete="email" required data-fs-field>
+    <span data-fs-error="_replyto"></span>
   </div>
 
   <div class="field">
     <label for="topic">What are you reaching out about? <span class="required" aria-hidden="true">*</span></label>
-    <select id="topic" name="Topic" required>
+    <select id="topic" name="Topic" required data-fs-field>
       <option value="">Select one&hellip;</option>
       <option>Question about past projects</option>
       <option>Media query</option>
@@ -44,17 +53,34 @@ permalink: /contact/
       <option>Creative opportunity</option>
       <option>Something else</option>
     </select>
+    <span data-fs-error="Topic"></span>
   </div>
 
   <div class="field">
     <label for="subject">Subject <span class="required" aria-hidden="true">*</span></label>
-    <input type="text" id="subject" name="_subject" required>
+    <input type="text" id="subject" name="_subject" required data-fs-field>
+    <span data-fs-error="_subject"></span>
   </div>
 
   <div class="field">
     <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
-    <textarea id="message" name="Message" required></textarea>
+    <textarea id="message" name="Message" required data-fs-field></textarea>
+    <span data-fs-error="Message"></span>
   </div>
 
-  <button type="submit">Send Message</button>
+  <button type="submit" data-fs-submit-btn>Send Message</button>
 </form>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: '{{ site.formspree_id }}' });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var success = document.getElementById('contact-success');
+    if (!success) return;
+    new MutationObserver(function () {
+      if (success.offsetParent !== null) success.focus();
+    }).observe(success, { attributes: true, attributeFilter: ['style', 'class'] });
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
