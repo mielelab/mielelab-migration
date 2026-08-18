@@ -8,6 +8,12 @@ description: "Disability Is Truly The Mother Of Invention — Joshua A. Miele is
 url: "https://mielelab.github.io"
 baseurl: "/mielelab-migration"
 
+# Staging site only: keeps this out of search results (robots.txt disallow +
+# a sitewide noindex meta tag) so it doesn't get indexed as duplicate content
+# ahead of the real mielelab.com. MUST be set to false at production cutover,
+# alongside the url/baseurl change above.
+noindex: true
+
 author: Joshua A. Miele
 email: issues@mielelab.com
 

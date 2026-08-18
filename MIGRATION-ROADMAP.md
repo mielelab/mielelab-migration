@@ -26,9 +26,10 @@ look, feel, and accessibility of https://mielelab.com as closely as possible.
 
 - Convert the 10 WP pages to Jekyll pages (Home, About Josh Miele, Projects & Collaborations,
   Contact, Connecting Dots - A Blind Life, The Basics, Blog index, Privacy Policy,
-  Accessibility Statement). Skip "Nonsense" (private/test page) unless Josh wants it kept.
-- Convert 3 posts to `_posts/` (skip the private "Zibby and Connecting Dots" unless Josh wants
-  it public)
+  Accessibility Statement). "Nonsense" (private/test page) is permanently excluded — see
+  Open Questions #4.
+- Convert 3 posts to `_posts/` ("Zibby and Connecting Dots" is permanently excluded — see
+  Open Questions #4)
 - Model the 3 custom post types as Jekyll collections:
   - `_projects/` (10 entries — CAOS, Blind Arduino Project, UW CREATE, etc.)
   - `_events/` (13 entries — book tour stops, CSUN, Moth Mainstage, etc.)
@@ -77,8 +78,8 @@ look, feel, and accessibility of https://mielelab.com as closely as possible.
    `/YYYY/MM/DD/<slug>/`), and all 13 individual event URLs (WP had a page per event; this site
    only lists events, so those collapse onto `/events/`). See "Redirects from old WordPress URLs"
    in `README.md` for the full table.
-4. **The private pages/posts** ("Nonsense", "Zibby and Connecting Dots") — keep them
-   private/omitted, or should they become public content on the new site?
+4. ~~The private pages/posts~~ — **closed 2026-08-18, permanent**: the "Nonsense" page and
+   "Zibby and Connecting Dots" post stay excluded from the site. Not revisiting this.
 
 ## Parity audit (2026-08-18)
 
@@ -95,6 +96,12 @@ database dump). Full findings in the audit report; fixes already applied to this
   from the real child theme CSS — this was the largest visual gap found.
 - Fixed the home hero's mobile crop/overlap behavior (`.home-hero` in `_sass/_components.scss`
   + `index.html`).
+- Added `/contact/thanks/` as a real post-submit response page (architecture matches the
+  `contact`/`contact-thanks` pattern from the `center4aos/caostest` repo), using the real
+  Gravity Forms confirmation text recovered from the backup (`wp_gf_form_meta.confirmations`):
+  "Thank you for contacting Josh! He will get in touch with you soon.." — wired via a `_next`
+  hidden field on the form. Closes the "confirmation message not replicated" gap flagged in the
+  original audit.
 - Corrected `$content-max-width` (1200px → 1280px) and `$radius-button` (10px → 50px pill) in
   `_sass/_tokens.scss` against the real DB-stored global styles and child theme CSS.
 - Color palette, fonts, all project/event/blurb content, nav structure, and uploaded images were

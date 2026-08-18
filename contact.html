@@ -13,6 +13,7 @@ permalink: /contact/
 <p>or send an email to <a href="mailto:MieleLab-announcements+subscribe@googlegroups.com">MieleLab-announcements+subscribe@googlegroups.com</a></p>
 
 <form class="contact-form" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST">
+  <input type="hidden" name="_next" value="{{ '/contact/thanks/' | absolute_url }}">
   <fieldset>
     <legend>Name</legend>
     <div class="name-fields">
