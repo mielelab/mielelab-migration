@@ -1,5 +1,5 @@
 - name: Bluesky
-  url: "http://berkeleyblink.bsky.social/"
+  url: "https://berkeleyblink.bsky.social/"
   icon: /assets/uploads/Bluesky.svg
 - name: LinkedIn
   url: "https://www.linkedin.com/in/jamielephd"

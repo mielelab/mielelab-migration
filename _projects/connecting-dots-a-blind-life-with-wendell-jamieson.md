@@ -1,7 +1,7 @@
 ---
 title: "“Connecting Dots – A Blind Life” with Wendell Jamieson"
 order: 6
-external_link: "http://mielelab.com/connecting-dots/"
+external_link: "https://mielelab.com/connecting-dots/"
 image: "/assets/uploads/josh-miele-single-stack.png"
 ---
 

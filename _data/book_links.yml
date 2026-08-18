@@ -1,5 +1,5 @@
 - name: Amazon
-  url: "http://www.amazon.com/gp/product/030683278X?tag=hacboogrosit-20"
+  url: "https://www.amazon.com/gp/product/030683278X?tag=hacboogrosit-20"
   icon: /assets/uploads/Amazon.png
 - name: Apple Books
   url: "https://books.apple.com/us/book/connecting-dots/id6505050921"
