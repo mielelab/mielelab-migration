@@ -70,10 +70,13 @@ look, feel, and accessibility of https://mielelab.com as closely as possible.
 2. ~~"What are you reaching out about?" dropdown options~~ — **resolved 2026-08-18**: recovered
    the real Gravity Forms field config from the full backup; `contact.html` now matches exactly
    (including the "Send Message" button text).
-3. **URL/permalink structure** — do you want to preserve exact URLs? Confirmed gap: the real
-   WordPress Projects page is `/projects-collaborations/`, but Jekyll uses `/projects/`. Nav
-   label/order match; only the URL differs. Worth a redirect if anything external links to the
-   old slug.
+3. ~~URL/permalink structure~~ — **resolved 2026-08-18**: pulled every real WordPress
+   permalink from the export XML and added a full redirect map (`jekyll-redirect-from`) covering
+   the Projects page, The Basics page (`/home-page/`, an odd legacy slug), all 10 project pages
+   (WP used `/project/<slug>/` singular), both blog posts (WP used date-based
+   `/YYYY/MM/DD/<slug>/`), and all 13 individual event URLs (WP had a page per event; this site
+   only lists events, so those collapse onto `/events/`). See "Redirects from old WordPress URLs"
+   in `README.md` for the full table.
 4. **The private pages/posts** ("Nonsense", "Zibby and Connecting Dots") — keep them
    private/omitted, or should they become public content on the new site?
 

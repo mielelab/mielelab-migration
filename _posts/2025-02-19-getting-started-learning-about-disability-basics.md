@@ -2,6 +2,8 @@
 layout: post
 title: "Getting Started -- Learning About Disability Basics"
 date: 2025-02-19
+redirect_from:
+  - /2025/02/18/getting-started-learning-about-disability-basics/
 ---
 
 <p>Sometimes it's hard to know where to get started learning about a complex topic like disability. If you haven't had exposure to disability, or if you are just beginning to think about it in your own life, There can be a lot of confusing and conflicting messages. History, literature, and popular culture offer quite a range of disability representations. And many of them are far from flattering or appropriate in a modern context. For the disability newcomer, it can be quite a challenge to separate the signal from the noise.</p>

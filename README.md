@@ -27,7 +27,7 @@ Open http://localhost:4000.
 ### Content collections
 
 - `_projects/` — Projects & Collaborations entries. Each has its own page at `/projects/<slug>/`.
-- `_events/` — speaking events (data only, no individual pages). Front matter: `date`, `time`, `timezone`, `location`, `event_type`, `link`.
+- `_events/` — speaking events (data only, no individual pages — listed on Home, Connecting Dots, and the `/events/` archive). Front matter: `date`, `time`, `timezone`, `location`, `event_type`, `link`.
 - `_blurbs/` — book endorsement quotes (data only). Front matter: `background`, `order`. Body is the quote text.
 - `_posts/` — blog posts, standard Jekyll format (`YYYY-MM-DD-title.md`).
 
@@ -75,6 +75,28 @@ bundle exec htmlproofer ./_site --checks Images,Links --disable-external --swap-
 ```
 
 Run this after `jekyll build` to catch missing alt text and broken internal links before deploying. Add `--allow-hash-href` if it flags the skip link.
+
+## Redirects from old WordPress URLs
+
+`jekyll-redirect-from` (bundled with the `github-pages` gem) generates meta-refresh
+stub pages for every old WordPress permalink that doesn't match its new Jekyll URL,
+via `redirect_from:` front matter on the target page. Current redirect sources, pulled
+from the real WordPress export (`mielelab.WordPress.2026-08-17.xml`):
+
+| Old WordPress URL(s) | New URL | Where |
+|---|---|---|
+| `/projects-collaborations/` | `/projects/` | `projects.html` |
+| `/home-page/` | `/the-basics/` | `the-basics.html` |
+| `/project/<slug>/` (×10) | `/projects/<slug>/` | each `_projects/*.md` |
+| `/YYYY/MM/DD/<slug>/` (×2) | `/blog/<slug>/` | each `_posts/*.md` |
+| `/events/<slug>/` (×13) | `/events/` | `events.html` — WordPress had an individual page per event; this site only lists events, so all 13 old event URLs collapse onto the archive rather than a 1:1 page |
+
+`/`, `/about/`, `/contact/`, `/connecting-dots/`, `/blog/`, `/privacy-policy/`, and
+`/accessibility-statement/` already matched the old WordPress slugs exactly and need
+no redirect.
+
+Adding a new redirect: add a `redirect_from:` array (one or more old paths) to the
+front matter of whichever page now serves that content.
 
 ## Deployment
 

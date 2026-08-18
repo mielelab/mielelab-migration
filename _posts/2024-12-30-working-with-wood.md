@@ -3,6 +3,8 @@ layout: post
 title: "Working with Wood"
 date: 2024-12-30
 image: "/assets/uploads/chopstick-rests-2023-left-2024-right-scaled.jpg"
+redirect_from:
+  - /2024/12/30/working-with-wood/
 ---
 
 <p>My accessibility work is almost entirely in the digital domain. Tools I help create are generally software or hardware, and they have a definite shelf life -- they only live as long as their ecosystem survives. When an operating system, CMS, or framework is updated, digital products almost always have to be updated if we want them to keep working.</p>
