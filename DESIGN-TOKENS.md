@@ -5,6 +5,32 @@ Extracted via computed-style inspection of https://mielelab.com (theme: WordPres
 saved at `assets/theme/twentytwentyfour-style.css` (parent) and
 `assets/theme/twentytwentyfour-child-style.css` (child, has the real custom rules).
 
+> **Status: historical.** This document is the original reverse-engineering pass, done
+> by sampling computed styles from the rendered live site before a full WordPress
+> backup was available. On 2026-08-18 a full site backup (WordPress core, plugins,
+> themes, and a database dump) was obtained, which is authoritative where it
+> disagrees with this doc. **See "Corrections from the full backup audit (2026-08-18)"
+> below** for exactly what changed and why. Everything else in this document that
+> isn't listed there was independently re-verified against the backup and confirmed
+> correct — it's kept as-is rather than rewritten, so this remains a record of what
+> was knowable from the live site alone versus what needed the real source to get
+> right. Full audit findings (content parity, not just design tokens) are logged in
+> `MIGRATION-ROADMAP.md`.
+
+## Corrections from the full backup audit (2026-08-18)
+
+Two values in this document, sampled from rendered output, turned out to be wrong
+once the real source (child theme CSS + DB-stored global styles) was available:
+
+| Token | This doc said | Real value | Source | Fixed in |
+|---|---|---|---|---|
+| Content max width | not documented here (Jekyll build had guessed `1200px`) | `1280px` | `theme.json` `settings.layout.wideSize` and the DB-stored `wp_global_styles` override for the child theme both agree | `_sass/_tokens.scss` `$content-max-width` |
+| Contact form submit button radius | `10px` (line 50 below) | `50px` (full pill) | child theme CSS: `.gform-theme--framework input.gform_button.button { border-radius: 50px !important; }` | `_sass/_tokens.scss` `$radius-button` |
+
+Everything else below — the color palette, font family/weights, input border-radius
+(`3px`), and the contrast/accessibility notes — was cross-checked against the real
+DB-stored styles and confirmed accurate as originally recorded.
+
 ## Color palette
 
 | Token | Hex | Used for |
@@ -72,7 +98,7 @@ Full WP preset palette (includes unused Gutenberg defaults) is in `assets/theme/
 - `assets/theme/twentytwentyfour-child-style.css` — child theme custom CSS (the real
   customizations: button/focus states, header behavior, blog/archive layout, form styling)
 
-## Known gaps (still need from Josh, or to reverse-engineer further)
+## Known gaps (as of 2026-08-17 — see resolution status below)
 
 - Parent theme's full block templates/PHP (Twenty Twenty-Four is open source — can pull the
   reference version straight from wordpress.org if useful, since the site doesn't appear to
@@ -80,3 +106,16 @@ Full WP preset palette (includes unused Gutenberg defaults) is in `assets/theme/
 - Any images not linked from the crawled pages (only checked Home + Contact so far)
 - Favicon / site icon — not spotted in the requests sampled, needs a dedicated check
 - Mobile breakpoint behavior (nav collapse, etc.) — not yet sampled at mobile viewport widths
+
+### Resolution status (2026-08-18, from the full backup audit)
+
+- **Theme PHP/templates** — obtained. The child theme has no template overrides at all
+  (structure lives in Gutenberg block markup in the DB, not PHP); its CSS and the
+  `miele-projects`/`miele-events`/`miele-blurbs` plugin source are now in the backup.
+- **Linked images** — diffed the full `wp-content/uploads/` listing against
+  `assets/uploads/`; every real content image is accounted for.
+- **Favicon / site icon** — confirmed there wasn't one. `wp_options.site_icon = '0'` in the
+  DB dump; this gap can be closed as "nothing to port," not "still needs checking."
+- **Mobile breakpoint behavior** — now fully known from the real child theme CSS (768px and
+  1200px breakpoints throughout, including project/event/blurb grid column counts and the
+  home hero's mobile crop/overlap treatment) and ported into `_sass/_components.scss`.
