@@ -11,8 +11,8 @@ baseurl: "/mielelab-migration"
 author: Joshua A. Miele
 email: issues@mielelab.com
 
-# Contact form (Formspree) — replace with the real form endpoint ID
-formspree_id: "REPLACE_ME"
+# Contact form (Formspree)
+formspree_id: "xqpzgwbe"
 
 markdown: kramdown
 kramdown:
