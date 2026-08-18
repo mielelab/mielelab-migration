@@ -17,14 +17,10 @@ permalink: /connecting-dots/
 </div>
 
 <h2>Where to Buy</h2>
-<div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); align-items:center;">
-  <a href="http://www.amazon.com/gp/product/030683278X?tag=hacboogrosit-20" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Amazon.png' | relative_url }}" alt="Buy on Amazon"></a>
-  <a href="https://books.apple.com/us/book/connecting-dots/id6505050921" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Apple.png' | relative_url }}" alt="Buy on Apple Books"></a>
-  <a href="https://www.barnesandnoble.com/w/connecting-dots-joshua-a-miele/1145933672" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Barnes-and-Noble.png' | relative_url }}" alt="Buy at Barnes and Noble"></a>
-  <a href="https://booksamillion.com/p/9780306832789" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Books-a-Million.png' | relative_url }}" alt="Buy at Books-a-Million"></a>
-  <a href="https://bookshop.org/p/books/connecting-dots-a-blind-life-joshua-a-miele/21622102" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Bookshop.org_.png' | relative_url }}" alt="Buy on Bookshop.org"></a>
-  <a href="https://www.hachettebookgroup.com/titles/joshua-a-miele/connecting-dots/9780306832789/?lens=hachette-books" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Hachette-Books.png' | relative_url }}" alt="Hachette Books"></a>
-  <a href="https://www.target.com/s?searchTerm=9780306832789" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Target.png' | relative_url }}" alt="Buy at Target"></a>
+<div class="card-grid buy-links-grid">
+  {% for link in site.data.book_links %}
+    <a href="{{ link.url }}" target="_blank" rel="noreferrer noopener"><img src="{{ link.icon | relative_url }}" alt="Buy on {{ link.name }}" loading="lazy"></a>
+  {% endfor %}
 </div>
 
 <h2>What People Are Saying</h2>

@@ -10,6 +10,8 @@ email: issues@mielelab.com
 formspree_id: "REPLACE_ME"
 
 markdown: kramdown
+kramdown:
+  auto_ids: true
 permalink: /blog/:title/
 
 collections:
@@ -42,6 +44,7 @@ sass:
 
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 exclude:
   - Gemfile

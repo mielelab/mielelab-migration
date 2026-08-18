@@ -43,6 +43,34 @@
   }
 }
 
+.page-banner {
+  background-color: $color-baby-blue;
+  background-image: url("/assets/uploads/Miele-Lab-Circles-06.png");
+  background-repeat: no-repeat;
+  background-position: 85% 50%;
+  background-size: 140px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.page-banner-title {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 700;
+  margin: 0;
+  color: $color-navy;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
 .site-footer {
   background: $color-navy;
   color: $color-white;
@@ -62,15 +90,7 @@
     flex-wrap: wrap;
   }
 
-  .social-icons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-
-    img {
-      width: 24px;
-      height: 24px;
-      filter: invert(1);
-    }
+  .social-icons img {
+    filter: invert(1);
   }
 }

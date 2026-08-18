@@ -2,10 +2,27 @@
 layout: default
 ---
 <article class="container">
-  <h1>{{ page.title }}</h1>
-  <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
-  {% if page.image %}
-    <img src="{{ page.image | relative_url }}" alt="" style="border-radius:12px; margin-bottom:2rem;">
-  {% endif %}
+  <a class="post-back-link" href="{{ '/blog/' | relative_url }}">&larr; Back to Blog</a>
+
+  <div class="post-header">
+    {% if page.image %}
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title | strip_html }}">
+    {% endif %}
+    <div>
+      <h1>{{ page.title }}</h1>
+      <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
+    </div>
+  </div>
+
+  <hr>
+
   {{ content }}
+
+  {% if page.tags.size > 0 %}
+    <p class="post-tags">{% for tag in page.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}</p>
+  {% endif %}
+
+  <a class="post-back-link" href="{{ '/blog/' | relative_url }}">&larr; Back to Blog</a>
+
+  {% include book-cta.html %}
 </article>

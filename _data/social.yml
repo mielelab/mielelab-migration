@@ -1,0 +1,12 @@
+- name: Bluesky
+  url: "http://berkeleyblink.bsky.social/"
+  icon: /assets/uploads/Bluesky.svg
+- name: LinkedIn
+  url: "https://www.linkedin.com/in/jamielephd"
+  icon: /assets/uploads/linkedin.svg
+- name: Instagram
+  url: "https://www.instagram.com/j.a.miele/"
+  icon: /assets/uploads/Instagram-logo.svg
+- name: Facebook
+  url: "https://www.facebook.com/josh.miele"
+  icon: /assets/uploads/facebook.svg

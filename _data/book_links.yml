@@ -1,0 +1,21 @@
+- name: Amazon
+  url: "http://www.amazon.com/gp/product/030683278X?tag=hacboogrosit-20"
+  icon: /assets/uploads/Amazon.png
+- name: Apple Books
+  url: "https://books.apple.com/us/book/connecting-dots/id6505050921"
+  icon: /assets/uploads/Apple.png
+- name: Barnes and Noble
+  url: "https://www.barnesandnoble.com/w/connecting-dots-joshua-a-miele/1145933672"
+  icon: /assets/uploads/Barnes-and-Noble.png
+- name: Books-A-Million
+  url: "https://booksamillion.com/p/9780306832789"
+  icon: /assets/uploads/Books-a-Million.png
+- name: Bookshop.org
+  url: "https://bookshop.org/p/books/connecting-dots-a-blind-life-joshua-a-miele/21622102"
+  icon: /assets/uploads/Bookshop.org_.png
+- name: Hachette Books
+  url: "https://www.hachettebookgroup.com/titles/joshua-a-miele/connecting-dots/9780306832789/?lens=hachette-books"
+  icon: /assets/uploads/Hachette-Books.png
+- name: Target
+  url: "https://www.target.com/s?searchTerm=9780306832789"
+  icon: /assets/uploads/Target.png

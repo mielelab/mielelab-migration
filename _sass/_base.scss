@@ -35,6 +35,19 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   margin: 0;
   font-family: $font-family-base;
@@ -61,9 +74,21 @@ a {
 
 // Visible focus states everywhere — this is a real accessibility feature
 // on the live site (not incidental styling) and must be preserved.
+//
+// The yellow outline alone is only ~1.5:1 against a white background,
+// short of the 3:1 WCAG 2.2 SC 2.4.11 non-text contrast minimum. Pairing
+// it with a dark navy ring guarantees a high-contrast boundary against
+// any background color used on this site, while keeping the yellow as
+// the visible brand accent.
 :focus-visible {
   outline: 2px solid $color-yellow;
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px $color-navy;
+}
+
+.section-dark :focus-visible,
+.link-card-dark :focus-visible {
+  box-shadow: 0 0 0 4px $color-white;
 }
 
 h1, h2, h3, h4, h5, h6 {
