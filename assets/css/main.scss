@@ -1,5 +1,12 @@
 ---
 ---
+// Liquid front matter above makes this the only .scss file Jekyll runs
+// through the Liquid renderer -- {{ site.baseurl }} works here but NOT in
+// the @imported partials below, so url() paths that need to survive a
+// project-site baseurl (see _config.yml) go through this variable instead
+// of being hardcoded as root-relative paths in the partials.
+$baseurl: "{{ site.baseurl }}";
+
 @import "tokens";
 @import "base";
 @import "header-footer";

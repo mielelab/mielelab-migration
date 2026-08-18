@@ -1,7 +1,12 @@
 title: MieleLab
 description: "Disability Is Truly The Mother Of Invention — Joshua A. Miele is a blind scientist, designer, author, and disability scholar."
-url: "https://mielelab.com"
-baseurl: ""
+# NOTE: this repo is a staging site, served as a GitHub Pages *project* site
+# at https://mielelab.github.io/mielelab-migration/ -- hence the baseurl below.
+# When this content is promoted to the final production repo (served at the
+# mielelab.com domain root), set baseurl back to "" or the site's assets/
+# links will all 404. See README.md.
+url: "https://mielelab.github.io"
+baseurl: "/mielelab-migration"
 
 author: Joshua A. Miele
 email: issues@mielelab.com
