@@ -71,7 +71,7 @@ When adding new content or components, keep these conventions:
 ### Testing
 
 ```
-bundle exec htmlproofer ./_site --checks Images,Links --disable-external
+bundle exec htmlproofer ./_site --checks Images,Links --disable-external --swap-urls "^/mielelab-migration:"
 ```
 
 Run this after `jekyll build` to catch missing alt text and broken internal links before deploying. Add `--allow-hash-href` if it flags the skip link.
