@@ -59,3 +59,5 @@ exclude:
   - MIGRATION-ROADMAP.md
   - "*.xml"
   - node_modules
+  - vendor
+  - .bundle
