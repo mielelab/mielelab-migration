@@ -12,7 +12,7 @@ permalink: /projects/
   {% for project in projects %}
     <div class="card">
       {% if project.image %}
-        <img src="{{ project.image | relative_url }}" alt="{{ project.title | strip_html }}" loading="lazy">
+        <img src="{{ project.image | relative_url }}" alt="" loading="lazy">
       {% endif %}
       <div class="card-body">
         <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
