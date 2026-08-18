@@ -1,0 +1,22 @@
+---
+layout: page
+title: Events
+permalink: /events/
+---
+<p>A full record of Josh&rsquo;s speaking engagements and appearances, book-related and otherwise.</p>
+
+<ul class="event-list">
+  {% assign events = site.events | sort: "date" | reverse %}
+  {% for event in events %}
+    <li>
+      <span class="event-date">{{ event.date | date: "%B %-d, %Y" }}</span> &mdash;
+      {% if event.link %}<a href="{{ event.link }}">{{ event.title }}</a>{% else %}{{ event.title }}{% endif %}
+      {% if event.time and event.time != "" %}<span class="event-time">at {{ event.time }}</span>{% endif %}
+      {% if event.timezone %}<span class="event-timezone">({{ event.timezone }})</span>{% endif %}
+      <br>{{ event.location }}
+      {% if event.content and event.content != "" %}
+        <div class="event-description">{{ event.content }}</div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

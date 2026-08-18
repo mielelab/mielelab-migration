@@ -1,6 +1,6 @@
 ---
 title: "Touch Graphics"
-order: 8
+order: 9
 external_link: "https://www.touchgraphics.com/team"
 image: "/assets/uploads/Miele-Lab-Circles-05.png"
 ---

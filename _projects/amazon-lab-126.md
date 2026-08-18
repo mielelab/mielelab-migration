@@ -1,6 +1,6 @@
 ---
 title: "Amazon Lab 126"
-order: 9
+order: 10
 external_link: "https://www.aboutamazon.com/news/workplace/how-an-amazon-researcher-who-is-blind-advocates-for-customers-with-disabilities"
 image: "/assets/uploads/miele-amazon.png"
 ---

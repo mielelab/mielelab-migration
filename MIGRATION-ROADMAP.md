@@ -11,8 +11,8 @@ look, feel, and accessibility of https://mielelab.com as closely as possible.
 | Media (`wp-content/uploads/`) | Downloaded directly (public URLs) — see `assets/uploads/` |
 | Fonts (self-hosted Montserrat) | Downloaded directly — see `assets/fonts/` |
 | Theme CSS (parent Twenty Twenty-Four + child theme) | Downloaded directly — see `assets/theme/` |
-| Theme PHP/templates, `functions.php` | **Not obtainable** — server-executed, not publicly downloadable, and admin/host access hasn't panned out. Working from rendered HTML + CSS instead (see `DESIGN-TOKENS.md`) |
-| Gravity Forms config | N/A — form is being rebuilt from scratch against Formspree |
+| Theme PHP/templates, `functions.php` | **Obtained 2026-08-18** via full BlogVault site backup (`mielelab.com full backup 08-18-26.zip`) — includes the real child theme CSS, `miele-projects`/`miele-events`/`miele-blurbs` CPT plugins, and a full `bvfulldump.sql` database dump (real ACF field values, Gravity Forms config, `wp_global_styles`). Used to audit and correct the migration — see parity audit notes below. |
+| Gravity Forms config | Real field config recovered from `wp_gf_form_meta` in the backup dump; form is still rebuilt against Formspree, but field labels/options/button text now match the source exactly |
 
 ## Phase 1 — Jekyll scaffold
 
@@ -67,12 +67,32 @@ look, feel, and accessibility of https://mielelab.com as closely as possible.
 
 1. **Mobile nav behavior** — haven't sampled the live site at mobile widths yet; if you can
    describe how the nav collapses (hamburger menu, etc.) or I'll check it myself next session
-2. **"What are you reaching out about?" dropdown options** on the Contact form — need the exact
-   list of choices to replicate in Formspree
-3. **URL/permalink structure** — do you want to preserve exact URLs (e.g. `/about-josh-miele/`)
-   for SEO/link continuity, or is a fresh URL structure fine?
+2. ~~"What are you reaching out about?" dropdown options~~ — **resolved 2026-08-18**: recovered
+   the real Gravity Forms field config from the full backup; `contact.html` now matches exactly
+   (including the "Send Message" button text).
+3. **URL/permalink structure** — do you want to preserve exact URLs? Confirmed gap: the real
+   WordPress Projects page is `/projects-collaborations/`, but Jekyll uses `/projects/`. Nav
+   label/order match; only the URL differs. Worth a redirect if anything external links to the
+   old slug.
 4. **The private pages/posts** ("Nonsense", "Zibby and Connecting Dots") — keep them
    private/omitted, or should they become public content on the new site?
-5. If you do manage to get theme/plugin file access later (Duplicator export, host file
-   manager, etc.), it's still useful as a cross-check even though we're proceeding without it
-   now — no urgency, just send it over if it becomes easy to get
+
+## Parity audit (2026-08-18)
+
+Ran a full audit against the real WordPress backup (theme CSS, CPT plugin source, and a full
+database dump). Full findings in the audit report; fixes already applied to this repo:
+
+- Fixed project/blurb manual ordering (`_projects/connecting-dots-a-blind-life-with-wendell-jamieson.md`
+  and the five blurb files under `_blurbs/`) to match the real `menu_order` values.
+- Added `/events/` — the live site has an events archive (`has_archive: true` on the `events`
+  CPT); two past non-book events (CSUN Conference, Bill Gerrey talk) had no page they rendered
+  on before this.
+- Ported the real 4-color alternating card treatment (`.project-list`, `.event-list`,
+  `.blurb-list` in `_sass/_components.scss`) and the 3-col/2-col/1-col responsive grid, pulled
+  from the real child theme CSS — this was the largest visual gap found.
+- Fixed the home hero's mobile crop/overlap behavior (`.home-hero` in `_sass/_components.scss`
+  + `index.html`).
+- Corrected `$content-max-width` (1200px → 1280px) and `$radius-button` (10px → 50px pill) in
+  `_sass/_tokens.scss` against the real DB-stored global styles and child theme CSS.
+- Color palette, fonts, all project/event/blurb content, nav structure, and uploaded images were
+  independently re-verified against the DB dump and confirmed already correct.

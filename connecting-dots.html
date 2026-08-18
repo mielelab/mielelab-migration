@@ -24,16 +24,16 @@ permalink: /connecting-dots/
 </div>
 
 <h2>What People Are Saying</h2>
-<div class="blurbs">
+<ul class="blurb-list">
   {% assign blurbs = site.blurbs | sort: "order" %}
   {% for blurb in blurbs %}
-    <div class="blurb">
+    <li>
       <blockquote>{{ blurb.content }}</blockquote>
       <cite>&mdash; {{ blurb.title }}</cite>
       {% if blurb.background %}<p class="blurb-background">{{ blurb.background }}</p>{% endif %}
-    </div>
+    </li>
   {% endfor %}
-</div>
+</ul>
 
 <h2>Past Events</h2>
 <ul class="event-list">

@@ -7,19 +7,19 @@ permalink: /projects/
 
 <p><a class="button" href="{{ '/contact/' | relative_url }}">Contact Me</a></p>
 
-<div class="card-grid">
+<ul class="project-list">
   {% assign projects = site.projects | sort: "order" %}
   {% for project in projects %}
-    <div class="card">
+    <li>
       {% if project.image %}
-        <img src="{{ project.image | relative_url }}" alt="" loading="lazy">
-      {% endif %}
-      <div class="card-body">
-        <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-        <div class="card-link">
-          <a href="{{ project.url | relative_url }}">Read more</a>
+        <div class="project-thumbnail">
+          <img src="{{ project.image | relative_url }}" alt="" loading="lazy">
         </div>
+      {% endif %}
+      <div class="project-meta">
+        <h2 class="project-title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
       </div>
-    </div>
+      <p class="project-link"><a class="button" href="{{ project.url | relative_url }}">Learn more <span class="visually-hidden">about {{ project.title }}</span></a></p>
+    </li>
   {% endfor %}
-</div>
+</ul>
