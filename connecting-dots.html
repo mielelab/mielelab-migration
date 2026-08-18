@@ -18,13 +18,13 @@ permalink: /connecting-dots/
 
 <h2>Where to Buy</h2>
 <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); align-items:center;">
-  <a href="https://www.amazon.com/"><img src="{{ '/assets/uploads/Amazon.png' | relative_url }}" alt="Buy on Amazon"></a>
-  <a href="https://www.apple.com/apple-books/"><img src="{{ '/assets/uploads/Apple.png' | relative_url }}" alt="Buy on Apple Books"></a>
-  <a href="https://www.barnesandnoble.com/"><img src="{{ '/assets/uploads/Barnes-and-Noble.png' | relative_url }}" alt="Buy at Barnes and Noble"></a>
-  <a href="https://www.booksamillion.com/"><img src="{{ '/assets/uploads/Books-a-Million.png' | relative_url }}" alt="Buy at Books-a-Million"></a>
-  <a href="https://bookshop.org/"><img src="{{ '/assets/uploads/Bookshop.org_.png' | relative_url }}" alt="Buy on Bookshop.org"></a>
-  <a href="https://www.hachettebookgroup.com/"><img src="{{ '/assets/uploads/Hachette-Books.png' | relative_url }}" alt="Hachette Books"></a>
-  <a href="https://www.target.com/"><img src="{{ '/assets/uploads/Target.png' | relative_url }}" alt="Buy at Target"></a>
+  <a href="http://www.amazon.com/gp/product/030683278X?tag=hacboogrosit-20" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Amazon.png' | relative_url }}" alt="Buy on Amazon"></a>
+  <a href="https://books.apple.com/us/book/connecting-dots/id6505050921" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Apple.png' | relative_url }}" alt="Buy on Apple Books"></a>
+  <a href="https://www.barnesandnoble.com/w/connecting-dots-joshua-a-miele/1145933672" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Barnes-and-Noble.png' | relative_url }}" alt="Buy at Barnes and Noble"></a>
+  <a href="https://booksamillion.com/p/9780306832789" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Books-a-Million.png' | relative_url }}" alt="Buy at Books-a-Million"></a>
+  <a href="https://bookshop.org/p/books/connecting-dots-a-blind-life-joshua-a-miele/21622102" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Bookshop.org_.png' | relative_url }}" alt="Buy on Bookshop.org"></a>
+  <a href="https://www.hachettebookgroup.com/titles/joshua-a-miele/connecting-dots/9780306832789/?lens=hachette-books" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Hachette-Books.png' | relative_url }}" alt="Hachette Books"></a>
+  <a href="https://www.target.com/s?searchTerm=9780306832789" target="_blank" rel="noreferrer noopener"><img src="{{ '/assets/uploads/Target.png' | relative_url }}" alt="Buy at Target"></a>
 </div>
 
 <h2>What People Are Saying</h2>
@@ -41,7 +41,7 @@ permalink: /connecting-dots/
 
 <h2>Past Events</h2>
 <ul class="event-list">
-  {% assign events = site.events | sort: "date" | reverse %}
+  {% assign events = site.events | where: "event_type", "Book Related Event" | sort: "date" %}
   {% for event in events %}
     <li>
       <span class="event-date">{{ event.date | date: "%B %-d, %Y" }}</span> &mdash;
