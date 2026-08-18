@@ -1,0 +1,23 @@
+---
+layout: page
+title: Projects & Collaborations
+permalink: /projects/
+---
+<p>I&rsquo;ve been incredibly lucky in finding amazing people to dream and collaborate with. Here you can read more about some of my past and present projects and partnerships.</p>
+
+<div class="card-grid">
+  {% assign projects = site.projects | sort: "order" %}
+  {% for project in projects %}
+    <div class="card">
+      {% if project.image %}
+        <img src="{{ project.image | relative_url }}" alt="">
+      {% endif %}
+      <div class="card-body">
+        <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+        <div class="card-link">
+          <a href="{{ project.url | relative_url }}">Read more</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mielelab-jekyll",
+      "runtimeExecutable": "jekyll",
+      "runtimeArgs": ["serve", "--host", "127.0.0.1", "--port", "4001"],
+      "port": 4001
+    }
+  ]
+}

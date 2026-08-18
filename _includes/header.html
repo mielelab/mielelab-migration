@@ -1,0 +1,14 @@
+<header class="site-header">
+  <div class="container">
+    <p class="site-title"><a href="{{ '/' | relative_url }}">MieleLab</a></p>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="{{ '/connecting-dots/' | relative_url }}"{% if page.url == '/connecting-dots/' %} aria-current="page"{% endif %}>Book</a></li>
+        <li><a href="{{ '/projects/' | relative_url }}"{% if page.url == '/projects/' %} aria-current="page"{% endif %}>Projects &amp; Collaborations</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' %} aria-current="page"{% endif %}>Blog</a></li>
+        <li><a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}"{% if page.url == '/contact/' %} aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

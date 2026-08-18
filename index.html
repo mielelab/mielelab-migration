@@ -1,0 +1,109 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+<section class="hero">
+  <div class="container hero">
+    <div class="hero-text">
+      <h1>Disability Is Truly The Mother Of Invention</h1>
+      <p>My overarching mission is to bring more lived disability experience to mainstream design, and more thoughtful design to accessible experiences.</p>
+      <p><a class="button" href="{{ '/contact/' | relative_url }}">Contact Josh Miele</a></p>
+    </div>
+    <div class="hero-image">
+      <img src="{{ '/assets/uploads/josh-miele-profile.png' | relative_url }}" alt="Portrait of Joshua A. Miele">
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container hero">
+    <div class="hero-image">
+      <img src="{{ '/assets/uploads/Connecting-Dots-Book-Mokcup.png' | relative_url }}" alt="Cover of the book Connecting Dots — A Blind Life by Joshua A. Miele">
+    </div>
+    <div class="hero-text">
+      <h2>Connecting Dots — A Blind Life</h2>
+      <p>A memoir by Joshua A. Miele with Wendell Jamieson</p>
+      <p><a class="button" href="{{ '/connecting-dots/' | relative_url }}">Learn More</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container hero">
+    <div class="hero-image">
+      <img src="{{ '/assets/uploads/josh-miele-open.png' | relative_url }}" alt="">
+    </div>
+    <div class="hero-text">
+      <h2>About Josh Miele</h2>
+      <p>Joshua A. Miele is a blind scientist, designer, author, and disability scholar.</p>
+      <p>He writes, advises, and collaborates widely on accessible design, disability-inclusive research methods, and the disability experience, often with emphasis on blindness and low vision.</p>
+      <p><a class="button" href="{{ '/about/' | relative_url }}">About Josh</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <h2>Projects and Collaborations</h2>
+    <p>I&rsquo;ve been incredibly lucky to find amazing people to dream and collaborate with. Here you can read more about some of my past and present projects and partnerships.</p>
+    <p><a class="button" href="{{ '/projects/' | relative_url }}">See Projects &amp; Collaborations</a></p>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <h2>Connecting Dots and Related Events</h2>
+    <p>Find out more about Josh&rsquo;s memoir, Connecting Dots, as well as a calendar of up-coming speaking engagements related to the book.</p>
+    <p><a class="button" href="{{ '/connecting-dots/' | relative_url }}">Learn More</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>MieleLab Blog</h2>
+    <p>Personal and professional musings on disability, accessibility, and design, as well as reports from my own blind experience.</p>
+    <div class="post-list">
+      {% for post in site.posts limit:2 %}
+        <div class="post-preview">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</p>
+          <p>{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+          <p><a href="{{ post.url | relative_url }}">Read More</a></p>
+        </div>
+      {% endfor %}
+    </div>
+    <p><a class="button" href="{{ '/blog/' | relative_url }}">More Blogs</a></p>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <h2>Upcoming Events</h2>
+    <p>Joshua&rsquo;s work bridges technology and disability, striving for accessibility across all aspects of the digital and physical world.</p>
+    {% assign upcoming = site.events | where_exp: "e", "e.date >= site.time" | sort: "date" %}
+    {% if upcoming.size > 0 %}
+      <ul class="event-list">
+        {% for event in upcoming %}
+          <li>
+            <span class="event-date">{{ event.date | date: "%B %-d, %Y" }}</span> &mdash;
+            {% if event.link %}<a href="{{ event.link }}">{{ event.title }}</a>{% else %}{{ event.title }}{% endif %}
+            <br>{{ event.location }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>There are no upcoming events.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section>
+  <div class="container hero">
+    <div class="hero-text">
+      <h2>MacArthur Fellowship Award</h2>
+      <p>The MacArthur Fellowship award celebrates individuals who demonstrate extraordinary creativity, significant accomplishments, and the promise of future impactful work.</p>
+      <p>Josh&rsquo;s recognition by the MacArthur Foundation underscores his groundbreaking contributions to accessibility, supporting blind and visually impaired (BVI) individuals in accessing information and everyday technologies. His work crosses traditional lines of accessibility, focusing on practical, affordable, and readily available solutions.</p>
+    </div>
+  </div>
+</section>

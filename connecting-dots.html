@@ -1,0 +1,52 @@
+---
+layout: page
+title: Connecting Dots - A Blind Life
+permalink: /connecting-dots/
+---
+<div class="hero">
+  <div class="hero-image">
+    <img src="{{ '/assets/uploads/Connecting-Dots-Book-Mokcup.png' | relative_url }}" alt="Cover of the book Connecting Dots — A Blind Life by Joshua A. Miele">
+  </div>
+  <div class="hero-text">
+    <p>Connecting Dots, written in collaboration with veteran journalist <a href="https://www.wendelljamieson.com">Wendell Jamieson</a> &ndash; tells the story of Dr. Miele&rsquo;s personal and professional blind life. From Brooklyn to Berkeley, from childhood to parenthood, from student to scholar, and beyond, this book describes Dr. Miele&rsquo;s experience growing up, coming of age, and establishing a life and career as a blind person in a sighted world.</p>
+
+    <p>Connecting Dots tells the very personal story of Josh&rsquo;s growth and development while offering his professional take on widely-shared challenges of blindness, such as access to maps and graphics, access to video content, and the challenge of managing uninvited &ldquo;assistance&rdquo; from sighted strangers. It also explains some of his unique approaches to solving accessibility challenges, such as automated tools for generating tactile maps, a somewhat shady scheme for crowd-sourcing descriptions of YouTube videos, and a brief but brutal sabotage campaign against inaccessible ATMs in the late 90s. Along the way, he talks about canes and dogs, braille and babies, screen readers and spacecraft, and the rebellion and romance throughout his life that ties them all together.</p>
+
+    <p>Maybe you&rsquo;re a disability and technology expert, or perhaps you&rsquo;ve never met a blind person or heard of a screen reader in your life. You might be a blind parent, or the parent of a blind child, or both. Possibly, you&rsquo;re an educator, designer, engineer, entrepreneur, social worker, philosopher, musician, or politician. Regardless, this book is perfect for you &ndash; read, learn, and enjoy!</p>
+  </div>
+</div>
+
+<h2>Where to Buy</h2>
+<div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); align-items:center;">
+  <a href="https://www.amazon.com/"><img src="{{ '/assets/uploads/Amazon.png' | relative_url }}" alt="Buy on Amazon"></a>
+  <a href="https://www.apple.com/apple-books/"><img src="{{ '/assets/uploads/Apple.png' | relative_url }}" alt="Buy on Apple Books"></a>
+  <a href="https://www.barnesandnoble.com/"><img src="{{ '/assets/uploads/Barnes-and-Noble.png' | relative_url }}" alt="Buy at Barnes and Noble"></a>
+  <a href="https://www.booksamillion.com/"><img src="{{ '/assets/uploads/Books-a-Million.png' | relative_url }}" alt="Buy at Books-a-Million"></a>
+  <a href="https://bookshop.org/"><img src="{{ '/assets/uploads/Bookshop.org_.png' | relative_url }}" alt="Buy on Bookshop.org"></a>
+  <a href="https://www.hachettebookgroup.com/"><img src="{{ '/assets/uploads/Hachette-Books.png' | relative_url }}" alt="Hachette Books"></a>
+  <a href="https://www.target.com/"><img src="{{ '/assets/uploads/Target.png' | relative_url }}" alt="Buy at Target"></a>
+</div>
+
+<h2>What People Are Saying</h2>
+<div class="blurbs">
+  {% assign blurbs = site.blurbs | sort: "order" %}
+  {% for blurb in blurbs %}
+    <div class="blurb">
+      <blockquote>{{ blurb.content }}</blockquote>
+      <cite>&mdash; {{ blurb.title }}</cite>
+      {% if blurb.background %}<p class="blurb-background">{{ blurb.background }}</p>{% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<h2>Past Events</h2>
+<ul class="event-list">
+  {% assign events = site.events | sort: "date" | reverse %}
+  {% for event in events %}
+    <li>
+      <span class="event-date">{{ event.date | date: "%B %-d, %Y" }}</span> &mdash;
+      {% if event.link %}<a href="{{ event.link }}">{{ event.title }}</a>{% else %}{{ event.title }}{% endif %}
+      <br>{{ event.location }}
+    </li>
+  {% endfor %}
+</ul>

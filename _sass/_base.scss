@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew7Y3tcoqK5.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Ew7Y3tcoqK5.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w7Y3tcoqK5.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr70w7Y3tcoqK5.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-navy;
+  background: $color-white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: $color-navy;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-cornflower;
+  }
+}
+
+// Visible focus states everywhere — this is a real accessibility feature
+// on the live site (not incidental styling) and must be preserved.
+:focus-visible {
+  outline: 2px solid $color-yellow;
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.6em;
+}
+
+h1 { font-size: $font-size-xx-large; font-weight: 600; }
+h2 { font-size: $font-size-x-large; }
+h3 { font-size: $font-size-large; }
+h4 { font-size: $font-size-medium; }
+
+p {
+  margin: 0 0 1.2em;
+}
+
+ul, ol {
+  margin: 0 0 1.2em;
+  padding-left: 1.4em;
+}
+
+.container {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: $color-navy;
+  color: $color-white;
+  padding: 0.6rem 1rem;
+  border-radius: $radius-input;
+  transition: top 0.2s ease;
+  z-index: 100;
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
+.button,
+.btn {
+  display: inline-block;
+  font-family: $font-family-base;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: $color-white;
+  background: $color-cornflower;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: $color-yellow;
+    color: $color-navy;
+  }
+}
+
+section {
+  padding: 3rem 0;
+}
+
+.section-dark {
+  background: $color-navy;
+  color: $color-white;
+
+  a {
+    color: $color-white;
+  }
+}
+
+.section-light {
+  background: $color-baby-blue;
+}

@@ -1,0 +1,52 @@
+---
+layout: page
+title: Contact
+permalink: /contact/
+---
+<p>Have a question about a past project, a media inquiry, or an invitation to collaborate, speak, or create something together? Send a message below.</p>
+
+<form class="contact-form" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST">
+  <fieldset>
+    <legend>Name</legend>
+    <div class="name-fields">
+      <div class="field">
+        <label for="first-name">First <span class="required" aria-hidden="true">*</span></label>
+        <input type="text" id="first-name" name="First name" autocomplete="given-name" required>
+      </div>
+      <div class="field">
+        <label for="last-name">Last <span class="required" aria-hidden="true">*</span></label>
+        <input type="text" id="last-name" name="Last name" autocomplete="family-name" required>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+    <input type="email" id="email" name="_replyto" autocomplete="email" required>
+  </div>
+
+  <div class="field">
+    <label for="topic">What are you reaching out about? <span class="required" aria-hidden="true">*</span></label>
+    <select id="topic" name="Topic" required>
+      <option value="">Select one&hellip;</option>
+      <option>Question about past projects</option>
+      <option>Media Query</option>
+      <option>Invitation to Collaborate</option>
+      <option>Invitation to Speak or Present</option>
+      <option>Creative Opportunity</option>
+      <option>Something Else</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="subject">Subject <span class="required" aria-hidden="true">*</span></label>
+    <input type="text" id="subject" name="_subject" required>
+  </div>
+
+  <div class="field">
+    <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+    <textarea id="message" name="Message" required></textarea>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

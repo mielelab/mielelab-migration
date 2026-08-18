@@ -1,0 +1,53 @@
+title: MieleLab
+description: "Disability Is Truly The Mother Of Invention — Joshua A. Miele is a blind scientist, designer, author, and disability scholar."
+url: "https://mielelab.com"
+baseurl: ""
+
+author: Joshua A. Miele
+email: issues@mielelab.com
+
+# Contact form (Formspree) — replace with the real form endpoint ID
+formspree_id: "REPLACE_ME"
+
+markdown: kramdown
+permalink: /blog/:title/
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+  events:
+    output: false
+  blurbs:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - DESIGN-TOKENS.md
+  - MIGRATION-ROADMAP.md
+  - "*.xml"
+  - node_modules

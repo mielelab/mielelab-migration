@@ -1,0 +1,28 @@
+// Design tokens reverse-engineered from https://mielelab.com — see DESIGN-TOKENS.md
+
+// Colors
+$color-navy:        #1c2157; // primary text / headings / dark backgrounds
+$color-cornflower:  #0079b5; // primary button background
+$color-cyan:        #5cc9de; // labels/input text on dark backgrounds, accents
+$color-yellow:      #f7d13b; // hover / focus state
+$color-baby-blue:   #ebf5fc; // light section background
+$color-white:       #ffffff;
+$color-text:        #2e2e2e; // fallback body text
+
+// Type
+$font-family-base: "Montserrat", sans-serif;
+
+$font-size-base:    1rem;      // 16px
+$font-size-small:   0.9rem;
+$font-size-medium:  1.05rem;
+$font-size-large:   unquote("clamp(1.39rem, 1.39rem + ((1vw - 0.2rem) * 0.767), 1.85rem)");
+$font-size-x-large: unquote("clamp(1.85rem, 1.85rem + ((1vw - 0.2rem) * 1.083), 2.5rem)");
+$font-size-xx-large: unquote("clamp(2.5rem, 2.5rem + ((1vw - 0.2rem) * 1.283), 3.27rem)");
+$font-size-huge:    42px;
+
+$line-height-base: 1.65;
+
+// Layout
+$content-max-width: 1200px;
+$radius-input: 3px;
+$radius-button: 10px;
